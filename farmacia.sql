@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2021 a las 04:52:43
+-- Tiempo de generación: 25-04-2021 a las 20:59:16
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.5
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `farmacia`
 --
-CREATE DATABASE IF NOT EXISTS `farmacia` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `farmacia`;
 
 -- --------------------------------------------------------
 
@@ -104,6 +102,14 @@ CREATE TABLE `monedero` (
   `Mon_puntos` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `monedero`
+--
+
+INSERT INTO `monedero` (`idMonedero`, `Mon_puntos`) VALUES
+(1111, 12),
+(233535244, 123);
+
 -- --------------------------------------------------------
 
 --
@@ -117,7 +123,7 @@ CREATE TABLE `paciente` (
   `P_apMat` varchar(45) NOT NULL,
   `P_fNac` date NOT NULL,
   `P_telefono` bigint(10) DEFAULT NULL,
-  `P_sexo` bit(1) NOT NULL,
+  `P_sexo` varchar(9) NOT NULL,
   `IdMonedero` bigint(20) DEFAULT NULL,
   `P_tipoSangre` varchar(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -136,7 +142,6 @@ CREATE TABLE `servicios` (
   `Ser_fecResultado` date DEFAULT NULL,
   `Ser_Fecha` date NOT NULL,
   `Ser_costo` decimal(10,0) NOT NULL,
-  `Ser_Precio` decimal(10,0) NOT NULL,
   `Ser_idLAboArea` int(11) DEFAULT NULL,
   `Ser_idPaciente` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
